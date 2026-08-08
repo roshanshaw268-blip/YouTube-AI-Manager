@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Content Studio</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#0b0b10;color:#fff;min-height:100vh}
+.container{max-width:1100px;margin:auto;padding:25px}
+.back{color:#aaa;text-decoration:none;display:inline-block;margin-bottom:25px}
+h1{font-size:32px;margin-bottom:8px}
+.sub{color:#888;margin-bottom:30px}
+.box{background:#15151e;border:1px solid #292936;border-radius:18px;padding:24px;margin-bottom:20px}
+label{display:block;color:#aaa;margin-bottom:8px}
+input,select,textarea{
+width:100%;padding:14px;background:#0f0f16;
+border:1px solid #30303d;color:white;border-radius:10px;
+margin-bottom:18px;outline:none
+}
+textarea{min-height:130px;resize:vertical}
+button{
+background:#7c3aed;color:white;border:0;padding:14px 20px;
+border-radius:10px;font-weight:bold;cursor:pointer
+}
+button:hover{opacity:.85}
+.result{
+background:#0f0f16;border:1px solid #30303d;border-radius:14px;
+padding:20px;margin-top:20px;line-height:1.7;white-space:pre-wrap
+}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}h1{font-size:25px}}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a class="back" href="index.html">← Back to Dashboard</a>
+
+<h1>✨ AI Content Studio</h1>
+<p class="sub">Create ideas, hooks, titles, descriptions and scripts for your YouTube channel.</p>
+
+<div class="box">
+
+<div class="grid">
+
+<div>
+<label>Content Type</label>
+<select id="type">
+<option>YouTube Short</option>
+<option>Long Video</option>
+<option>Comedy</option>
+<option>Web Series</option>
+<option>Story</option>
+</select>
+</div>
+
+<div>
+<label>Language</label>
+<select id="language">
+<option>Hindi</option>
+<option>Hinglish</option>
+<option>English</option>
+</select>
+</div>
+
+</div>
+
+<label>Topic / Keyword</label>
+<input id="topic" placeholder="Example: Funny college life">
+
+<label>What do you want AI to create?</label>
+<select id="task">
+<option>5 Viral Video Ideas</option>
+<option>Video Hook</option>
+<option>YouTube Title</option>
+<option>Description + Hashtags</option>
+<option>Shorts Script</option>
+</select>
+
+<button onclick="generate()">✨ Generate with AI</button>
+
+<div id="result" class="result">
+Your AI result will appear here...
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function generate(){
+
+const topic=document.getElementById("topic").value.trim();
+const type=document.getElementById("type").value;
+const language=document.getElementById("language").value;
+const task=document.getElementById("task").value;
+const result=document.getElementById("result");
+
+if(!topic){
+result.innerText="⚠️ Please enter a topic first.";
+return;
+}
+
+result.innerText=
+"🤖 AI Assistant Preview\n\n"+
+"Content Type: "+type+
+"\nLanguage: "+language+
+"\nTask: "+task+
+"\nTopic: "+topic+
+"\n\nReal AI generation will be connected in the next stage.";
+
+}
+
+</script>
+
+</body>
+</html>
